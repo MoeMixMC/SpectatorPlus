@@ -53,7 +53,7 @@ public class SpectateListener implements Listener {
         // On block place - cancel if the player is a spectator
     	if (plugin.user.get(event.getPlayer().getName()).spectating == true) {
     		event.setCancelled(true);
-    		event.getPlayer().sendMessage(plugin.prefix + "You cannot place blocks while in spectate mode!");
+    		event.getPlayer().sendMessage(ChatColor.RED+"["+ChatColor.AQUA+"ALERT"+ChatColor.RED+"]"+ChatColor.DARK_RED+"You cannot place blocks while in spectate mode!");
     	}
     }
     @EventHandler
@@ -81,7 +81,7 @@ public class SpectateListener implements Listener {
         // On block break - Cancel if the player is a spectator. Fires only when the block is fully broken
     	if (plugin.user.get(event.getPlayer().getName()).spectating == true) {
     		event.setCancelled(true);
-    		event.getPlayer().sendMessage(plugin.prefix + "You cannot break blocks while in spectate mode!");
+    		event.getPlayer().sendMessage(ChatColor.RED+"["+ChatColor.AQUA+"ALERT"+ChatColor.RED+"]"+ChatColor.DARK_RED+"You cannot break blocks while in spectate mode!");
     	}
     	// Set up mode
     	if(plugin.modeSetup(event.getPlayer(), event.getBlock()) == true) {
@@ -128,7 +128,7 @@ public class SpectateListener implements Listener {
         // On block damage - Cancels the block damage animation
     	if (plugin.user.get(event.getPlayer().getName()).spectating == true) {
     		event.setCancelled(true);
-    		event.getPlayer().sendMessage(plugin.prefix + "You cannot break blocks while in spectate mode!");
+    		event.getPlayer().sendMessage(ChatColor.RED+"["+ChatColor.AQUA+"ALERT"+ChatColor.RED+"]"+ChatColor.DARK_RED+"You cannot break blocks while in spectate mode!");
     	}
     	// Set up mode
     	if (plugin.modeSetup(event.getPlayer(), event.getBlock()) == true) {
@@ -201,13 +201,13 @@ public class SpectateListener implements Listener {
 				event.getWhoClicked().closeInventory();
 				if (skullOwner != null && skullOwner.isOnline() == true && skullOwner.getAllowFlight() == false) {
 					event.getWhoClicked().teleport(skullOwner);
-                   	((Player)event.getWhoClicked()).sendMessage(plugin.prefix + "Teleported you to " + ChatColor.RED + skullOwner.getName());
+                   	((Player)event.getWhoClicked()).sendMessage(ChatColor.GREEN+"Teleported you to " + ChatColor.RED + skullOwner.getName());
 				} else {
 					if (skullOwner == null) {
 						OfflinePlayer offlineSkullOwner = plugin.getServer().getOfflinePlayer(meta.getOwner());
 						((Player) event.getWhoClicked()).sendMessage(plugin.prefix + ChatColor.RED + offlineSkullOwner.getName() + ChatColor.GOLD + " is not online!");
 					} else if (skullOwner.getAllowFlight() == true) {
-						((Player) event.getWhoClicked()).sendMessage(plugin.prefix + ChatColor.RED + skullOwner.getName() + ChatColor.GOLD + " is currently spectating!");
+						((Player) event.getWhoClicked()).sendMessage(ChatColor.RED+"["+ChatColor.AQUA+"ALERT"+ChatColor.RED+"]" + ChatColor.RED + skullOwner.getName() + ChatColor.GOLD + " is currently spectating!");
 					}
 				}
 			}

@@ -22,7 +22,7 @@ import org.bukkit.potion.PotionEffectType;
 
 public class SpectatorPlus extends JavaPlugin {
 	public HashMap <String, PlayerObject> user = new HashMap<String, PlayerObject>();
-	String basePrefix = ChatColor.BLUE + "Spectator" + ChatColor.DARK_BLUE + "Plus";
+	String basePrefix = ChatColor.BLUE + "HG" + ChatColor.DARK_BLUE + "Spectate";
 	String prefix = ChatColor.GOLD + "[" + basePrefix + ChatColor.GOLD + "] ";
 	@Override
 	public void onEnable() {
